@@ -1,6 +1,7 @@
 import { rewrite, next } from "@vercel/edge";
 import builtInApiPaths from "./built-in-api-paths";
 
+const dest = process.env.DEST;
 const hosts = (process.env.HOSTS ?? "clubs.place")
 	.split(",")
 	.map((x) => x.trim())
@@ -70,15 +71,16 @@ export default function middleware(req: Request) {
 		hosts.find((h) => url.host === h) ??
 		hosts.find((h) => url.host.endsWith(h));
 
-	if (bInApi && primaryHost && url.host !== primaryHost) {
+	if (bInApi && primaryHost && url.host !== primaryHost && dest) {
 		const destination = new URL(url.href);
-		destination.host = primaryHost;
+		destination.host = dest;
 		return rewrite(destination);
 	}
 
-	if ((html || pInApi) && primaryHost && url.host !== primaryHost) {
+	if ((html || pInApi) && primaryHost && url.host !== primaryHost && dest) {
 		const destination = new URL(url.href);
 		destination.pathname = `/sites_/${tenant}${url.pathname}`;
+		destination.host = dest;
 		return rewrite(destination);
 	}
 
