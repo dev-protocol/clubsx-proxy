@@ -79,7 +79,7 @@ export default function middleware(req: Request) {
 		return rewrite(destination);
 	}
 
-	if (primaryHost && url.host !== primaryHost && dest) {
+	if (dest) {
 		const destination = new URL(url.href);
 		destination.host = dest;
 		return rewrite(destination);
