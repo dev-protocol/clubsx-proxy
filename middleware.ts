@@ -70,16 +70,17 @@ export default function middleware(req: Request) {
 	const primaryHost =
 		hosts.find((h) => url.host === h) ??
 		hosts.find((h) => url.host.endsWith(h));
-
-	if (bInApi && primaryHost && url.host !== primaryHost && dest) {
-		const destination = new URL(url.href);
-		destination.host = dest;
-		return rewrite(destination);
-	}
+	console.log({ primaryHost, bInApi, pInApi });
 
 	if ((html || pInApi) && primaryHost && url.host !== primaryHost && dest) {
 		const destination = new URL(url.href);
 		destination.pathname = `/sites_/${tenant}${url.pathname}`;
+		destination.host = dest;
+		return rewrite(destination);
+	}
+
+	if (primaryHost && url.host !== primaryHost && dest) {
+		const destination = new URL(url.href);
 		destination.host = dest;
 		return rewrite(destination);
 	}
