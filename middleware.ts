@@ -58,14 +58,16 @@ export default function middleware(req: Request) {
 
 	const hostnames = url.host.split(".") ?? [];
 	const [tenant] = hostnames;
+	const api = url.pathname.startsWith("/api/");
 	const html =
-		req.headers.get("accept")?.includes("text/html") ||
-		url.pathname
-			.split("/")
-			.slice(-1)
-			.every((p) => !/\..+$/.test(p));
+		!api &&
+		(req.headers.get("accept")?.includes("text/html") ||
+			url.pathname
+				.split("/")
+				.slice(-1)
+				.every((p) => !/\..+$/.test(p)));
 	const bInApi = builtInApiPaths.some((p) => url.pathname.startsWith(p));
-	const pInApi = url.pathname.startsWith("/api/") && !bInApi;
+	const pInApi = api && !bInApi;
 
 	const primaryHost =
 		hosts.find((h) => url.host === h) ??
