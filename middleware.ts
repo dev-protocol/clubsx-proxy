@@ -34,8 +34,6 @@ const redirects = [
 
 export default function middleware(req: Request) {
 	const url = new URL(req.url);
-	console.log("req.url", req.url);
-	console.log("url", url.href, url.search);
 
 	const matchToRedirects = redirects.find(
 		({ host, matchers }) =>
@@ -74,18 +72,19 @@ export default function middleware(req: Request) {
 	const primaryHost =
 		hosts.find((h) => url.host === h) ??
 		hosts.find((h) => url.host.endsWith(h));
-	console.log({ primaryHost, bInApi, pInApi });
 
 	if ((html || pInApi) && primaryHost && url.host !== primaryHost && dest) {
 		const destination = new URL(url.href);
 		destination.pathname = `/sites_/${tenant}${url.pathname}`;
 		destination.host = dest;
+		console.log({ destination: destination.toString() });
 		return rewrite(destination);
 	}
 
 	if (dest) {
 		const destination = new URL(url.href);
 		destination.host = dest;
+		console.log({ destination: destination.toString() });
 		return rewrite(destination);
 	}
 
