@@ -34,6 +34,8 @@ const redirects = [
 
 export default function middleware(req: Request) {
 	const url = new URL(req.url);
+	console.log("req.url", req.url);
+	console.log("url", url);
 
 	const matchToRedirects = redirects.find(
 		({ host, matchers }) =>
