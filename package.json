@@ -1,8 +1,8 @@
 {
-	"name": "template-repos-static",
+	"name": "clubsx-proxy",
 	"private": true,
 	"type": "module",
-	"description": "Template repository for static files",
+	"description": "Proxy server for providing multi-tenancy ClubsX",
 	"scripts": {
 		"lint": "prettier --write '**/*.{ts,js,json,md,yml}'"
 	},
@@ -17,17 +17,9 @@
 		"prettier": "2.8.8",
 		"typescript": "^5.2.2"
 	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/dev-protocol/assets.git"
-	},
 	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/dev-protocol/assets/issues"
-	},
-	"homepage": "https://github.com/dev-protocol/assets#readme",
 	"version": "1.0.0",
-	"main": "index.js",
+	"main": "middleware.ts",
 	"keywords": [
 		"devprtcl",
 		"template",
@@ -38,5 +30,13 @@
 	"author": "Dev Protocol",
 	"dependencies": {
 		"@vercel/edge": "^1.1.0"
-	}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/dev-protocol/clubsx-proxy.git"
+	},
+	"bugs": {
+		"url": "https://github.com/dev-protocol/clubsx-proxy/issues"
+	},
+	"homepage": "https://github.com/dev-protocol/clubsx-proxy#readme"
 }
