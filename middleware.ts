@@ -16,7 +16,7 @@ const redirects = [
 		host,
 		matchers: [
 			"/",
-			new RegExp("^/(plugins|dev-tokens|blog|post|pricing)(|/.*)$"),
+			new RegExp("^/(ticketing|plugins|dev-tokens|blog|post|pricing)(|/.*)$"),
 		],
 		destination: "https://www.clubs.place",
 	})),
