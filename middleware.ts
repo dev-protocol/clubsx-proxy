@@ -16,7 +16,9 @@ const redirects = [
 		host,
 		matchers: [
 			"/",
-			new RegExp("^/(starter|ticketing|plugins|dev-tokens|blog|post|pricing)(|/.*)$"),
+			new RegExp(
+				"^/(starter|ticketing|plugins|dev-tokens|blog|post|pricing)(|/.*)$",
+			),
 		],
 		destination: "https://www.clubs.place",
 	})),
@@ -73,19 +75,20 @@ export default function middleware(req: Request) {
 		hosts.find((h) => url.host === h) ??
 		hosts.find((h) => url.host.endsWith(h));
 
+	const headers = new Headers([["x-clubs-href", url.href]]);
 	if ((html || pInApi) && primaryHost && url.host !== primaryHost && dest) {
 		const destination = new URL(url.href);
 		destination.pathname = `/sites_/${tenant}${url.pathname}`;
 		destination.host = dest;
 		console.log({ destination: destination.toString() });
-		return rewrite(destination, { headers: { 'clubsx-proxy-rewrite': url.href }});
+		return rewrite(destination, { headers });
 	}
 
 	if (dest) {
 		const destination = new URL(url.href);
 		destination.host = dest;
 		console.log({ destination: destination.toString() });
-		return rewrite(destination);
+		return rewrite(destination, { headers });
 	}
 
 	return next();
