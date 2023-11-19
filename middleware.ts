@@ -78,7 +78,7 @@ export default function middleware(req: Request) {
 		destination.pathname = `/sites_/${tenant}${url.pathname}`;
 		destination.host = dest;
 		console.log({ destination: destination.toString() });
-		return rewrite(destination);
+		return rewrite(destination, { headers: { 'clubsx-proxy-rewrite': url.href }});
 	}
 
 	if (dest) {
