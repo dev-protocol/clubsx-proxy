@@ -14,10 +14,10 @@
   resolved "https://registry.yarnpkg.com/@vercel/edge/-/edge-1.1.2.tgz#b89bc5fa927b9af64c99311afb4dcf48e7b9e87a"
   integrity sha512-wt5SnhsMahWX8U9ZZhFUQoiXhMn/CUxA5xeMdZX1cwyOL1ZbDR3rNI8HRT9RSU73nDxeF6jlnqJyp/0Jy0VM2A==
 
-husky@9.1.1:
-  version "9.1.1"
-  resolved "https://registry.yarnpkg.com/husky/-/husky-9.1.1.tgz#73f8f1b58329f377654293148c1a6458f54ca224"
-  integrity sha512-fCqlqLXcBnXa/TJXmT93/A36tJsjdJkibQ1MuIiFyCCYUlpYpIaj2mv1w+3KR6Rzu1IC3slFTje5f6DUp2A2rg==
+husky@9.1.2:
+  version "9.1.2"
+  resolved "https://registry.yarnpkg.com/husky/-/husky-9.1.2.tgz#ddaf290384c7adab4fd3143571c73d05b19f42ee"
+  integrity sha512-1/aDMXZdhr1VdJJTLt6e7BipM0Jd9qkpubPiIplon1WmCeOy3nnzsCMeBqS9AsL5ioonl8F8y/F2CLOmk19/Pw==
 
 prettier@3.3.3:
   version "3.3.3"
