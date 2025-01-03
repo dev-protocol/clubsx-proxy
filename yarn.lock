@@ -10,9 +10,9 @@
     undici-types "~6.20.0"
 
 "@vercel/edge@^1.1.0":
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/@vercel/edge/-/edge-1.1.4.tgz#5d5508a950e8af6f5d70e9b83ed01bcbbb1c8622"
-  integrity sha512-mCe+KKmYphgWaO6NSxzkxskv4eZOuuRDqBQX/LhOizj5o1+4u/fwjN+WZDpAyVH8WU8+7EueijoT6wbTKlauOA==
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@vercel/edge/-/edge-1.2.0.tgz#e84dc39719fecd1fa385691bb0a26b95da2720f1"
+  integrity sha512-0g5uHRyamLJOzmOHp56ISLuZFhFwRIazWcKuRtSBAYjTG1EJrj2KNgW7K1KNSwAJQJzWh7I0qlm7nvvGADQj0Q==
 
 husky@9.1.7:
   version "9.1.7"
